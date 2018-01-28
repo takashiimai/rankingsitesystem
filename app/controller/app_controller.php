@@ -11,6 +11,8 @@ class app_controller extends core {
      */
     public function __construct() {
         parent::__construct();
+        $this->library('request');
+        $this->library('log');
     }
 
     /**

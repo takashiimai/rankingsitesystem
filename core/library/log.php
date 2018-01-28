@@ -64,7 +64,7 @@ class log {
         }
         $debug_backtrace = debug_backtrace();
         array_shift($debug_backtrace);
-        $log = sprintf("%s (%s)%s[%s] %s",
+        $log = sprintf("%s (PID.%s)%s[L.%s] %s",
                    date("y/m/d H:i:s"),
                    getmypid(),
                    basename($debug_backtrace[0]['file']),

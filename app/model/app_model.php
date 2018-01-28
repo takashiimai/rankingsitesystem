@@ -21,5 +21,8 @@ class app_model extends core {
     public function __destruct () {
         parent::__destruct();
     }
+
+
+
 }
 

@@ -73,11 +73,21 @@ class core {
      * @param
      * @return
      */
-    public function view($view, $params = array()) {
+    public function view($view, $params = array(), $buffer = FALSE) {
         $fn = APP_PATH . "/view/{$view}.php";
         if (file_exists($fn)) {
             extract($params);
-            include_once($fn);
+            if ($buffer == FALSE) {
+                include_once(APP_PATH . "/view/header.php");
+                include_once($fn);
+                include_once(APP_PATH . "/view/footer.php");
+            } else {
+                ob_start();
+                include_once($fn);
+                $out = ob_get_contents();
+                ob_end_clean();
+                return $out;
+            }
         }
     }
 }

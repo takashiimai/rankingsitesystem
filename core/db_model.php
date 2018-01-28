@@ -1,6 +1,6 @@
 <?php
 
-class db {
+class db_model {
 
     protected $db = NULL;
     protected $last_id = NULL;

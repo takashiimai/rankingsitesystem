@@ -1,0 +1,49 @@
+18/01/28 05:37:15 (4326)admin_category_controller.php[24] AAAA
+18/01/28 05:37:20 (4326)admin_category_controller.php[24] AAAA
+18/01/28 05:37:20 (4326)admin_category_controller.php[24] AAAA
+18/01/28 05:37:21 (4326)admin_category_controller.php[24] AAAA
+18/01/28 05:38:22 (PID.4323)admin_category_controller.php[L.24] AAAA
+18/01/28 06:57:26 (PID.4324)admin_category_controller.php[L.55] <div class="error">
+エラーです</div>
+18/01/28 06:59:01 (PID.7108)admin_category_controller.php[L.56] Array
+(
+    [status] => SUCCESS
+    [html] => <div class="error">
+エラーです</div>
+)
+
+18/01/28 07:34:37 (PID.4326)admin_category_controller.php[L.54] Array
+(
+    [id] => 
+    [name] => 
+    [slug] => 
+)
+
+18/01/28 07:34:58 (PID.4323)admin_category_controller.php[L.54] Array
+(
+    [id] => 1
+    [name] => テスト
+    [slug] => test
+)
+
+18/01/28 08:27:12 (PID.7108)admin_category_controller.php[L.54] Array
+(
+    [id] => 1
+    [name] => テスト
+    [slug] => test
+)
+
+18/01/28 08:27:23 (PID.7107)admin_category_controller.php[L.54] Array
+(
+    [id] => 1
+    [name] => テスト
+    [slug] => test
+)
+
+18/01/28 09:09:05 (PID.4327)admin_category_controller.php[L.67] Array
+(
+    [id] => 1
+    [name] => テスト
+    [slug] => test
+)
+
