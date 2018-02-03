@@ -14,6 +14,17 @@ class category_model extends db_model {
         $this->connect();
     }
 
+    /**
+     * 種別一覧を取得
+     *
+     * @param
+     * @return
+     */
+    public function get_list() {
+        $query = 'SELECT * FROM category';
+        return $this->select($query);
+    }
+
 
 }
 

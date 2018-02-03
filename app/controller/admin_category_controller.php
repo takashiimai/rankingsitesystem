@@ -22,6 +22,7 @@ class admin_category_controller extends app_controller {
     // 登録/編集
     public function edit($id = NULL) {
         try {
+            $item = array();
             if ($id > 0) {
                 // DBから読み出す
                 $this->model("category_model");
@@ -31,6 +32,10 @@ class admin_category_controller extends app_controller {
                 } else {
                     throw new Exception();
                 }
+
+                // サイトアイテムを取得
+                $this->model("config_site_item_model");
+                $item = $this->config_site_item_model->select_by_id('config_site_item', $post[0]['id'], 'category_id');
             } else {
                 $post = array(
                     'id' => '',
@@ -39,8 +44,9 @@ class admin_category_controller extends app_controller {
                 );
                 $views['post'] = $post;
             }
-            $this->view('admin_category_edit', $views);
+            $views['site_item_lists'] = $item;
 
+            $this->view('admin_category_edit', $views);
         } catch (Exception $e) {
         }
     }
@@ -62,7 +68,7 @@ class admin_category_controller extends app_controller {
             if (count($error)) {
                 $views['error'] = $error;
                 $result['status'] = 'ERROR';
-                $result['html'] = $this->view('parts_admin_category_edit_error', $views, TRUE);
+                $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
             } else {
                 $this->model("category_model");
                 $params = array(
@@ -89,6 +95,48 @@ class admin_category_controller extends app_controller {
         }
     }
 
+    // サイトアイテム登録
+    public function add_site_item() {
+        try {
+            $post = $this->request->post();
+            $error = array();
+            if (!strlen($post['name'])) {
+                $error[] = '※種別名を入力してください。';
+            }
+            if (!preg_match('/^[a-zA-Z0-9]{4,200}$/', $post['slug'])) {
+                $error[] = '※スラッグを半角英数字 4文字以上で入力してください。';
+            }
+
+            if (count($error)) {
+                $views['error'] = $error;
+                $result['status'] = 'ERROR';
+                $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
+            } else {
+                $this->model("config_site_item_model");
+                $params = array(
+                    ':category_id' => $post['category_id'],
+                    ':name' => $post['name'],
+                    ':slug' => $post['slug'],
+                );
+                if ($post['id'] > 0) {
+                    $this->config_site_item_model->update('config_site_item', array(':id' => $post['id']), $params);
+                    $id = $post['id'];
+                } else {
+                    $this->config_site_item_model->insert('config_site_item', $params);
+                    $id = $this->config_site_item_model->get_last_insert_id();
+                }
+
+                $result['status'] = 'SUCCESS';
+                $result['id'] = $id;
+                $result['html'] = '';
+            }
+
+            echo json_encode($result);
+
+        } catch (Exception $e) {
+            header('HTTP', true, 400);
+        }
+    }
 
 }
 

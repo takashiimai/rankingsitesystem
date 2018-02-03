@@ -47,3 +47,21 @@
     [slug] => test
 )
 
+18/02/03 07:31:21 (PID.3687)admin_site_controller.php[L.60] Array
+(
+    [id] => 1
+    [name] => aaaaa
+    [category_id] => 1
+    [url] => asadasd
+    [orderby] => 123
+    [site_item] => Array
+        (
+            [asdsss] => aaa
+            [asdad] => sss
+            [eeee] => ddd
+            [eeeeea] => eee
+        )
+
+)
+
+18/02/03 08:01:49 (PID.3701)admin_site_controller.php[L.91] KKKKKKKKKKKK
