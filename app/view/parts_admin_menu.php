@@ -3,7 +3,7 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link  is-active" href="/admin_index/category/">
+                <a class="navbar-link  is-active" href="/admin_category/">
                   カテゴリ管理
                 </a>
                 <div class="navbar-dropdown ">
@@ -16,14 +16,14 @@
                 </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link  is-active" href="/admin_index/category/">
+                <a class="navbar-link  is-active" href="/admin_site/">
                   サイト管理
                 </a>
                 <div class="navbar-dropdown ">
-                    <a class="navbar-item " href="/admin_category/">
+                    <a class="navbar-item " href="/admin_site/">
                         一覧
                     </a>
-                    <a class="navbar-item " href="/admin_category/edit/">
+                    <a class="navbar-item " href="/admin_site/edit/">
                         新規登録
                     </a>
                 </div>

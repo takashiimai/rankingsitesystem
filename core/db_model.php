@@ -31,15 +31,19 @@ class db_model {
      * @return
      */
     public function connect($key = 'default') {
-        $dsn  = sprintf("mysql:dbname=%s;host=%s;charset=%s",
-                    $GLOBALS['databases'][ $key ]['database'],
-                    $GLOBALS['databases'][ $key ]['hostname'],
-                    $GLOBALS['databases'][ $key ]['char_set']
-                 );
-        $user = $GLOBALS['databases'][ $key ]['username'];
-        $pwd  = $GLOBALS['databases'][ $key ]['password'];
-        $this->db = new PDO($dsn, $user, $pwd);
-        $this->db->query('SET NAMES ' . $GLOBALS['databases'][ $key ]['char_set']);
+        try {
+            $dsn  = sprintf("mysql:dbname=%s;host=%s;charset=%s",
+                        $GLOBALS['databases'][ $key ]['database'],
+                        $GLOBALS['databases'][ $key ]['hostname'],
+                        $GLOBALS['databases'][ $key ]['char_set']
+                     );
+            $user = $GLOBALS['databases'][ $key ]['username'];
+            $pwd  = $GLOBALS['databases'][ $key ]['password'];
+            $this->db = new PDO($dsn, $user, $pwd);
+            $this->db->query('SET NAMES ' . $GLOBALS['databases'][ $key ]['char_set']);
+        } catch (PDOException $e) {
+            throw new Exception();
+        }
     }
 
     /**
@@ -64,6 +68,38 @@ class db_model {
         return $this->last_id;
     }
 
+    /**
+     * トランザクション開始
+     *
+     * @param   
+     * @param   
+     * @return  integer
+     */
+    public function trans_start() {
+        $this->query('START TRANSACTION');
+    }
+
+    /**
+     * トランザクションコミット
+     *
+     * @param   
+     * @param   
+     * @return  integer
+     */
+    public function trans_commit() {
+        $this->query('COMMIT');
+    }
+
+    /**
+     * トランザクションロールバック
+     *
+     * @param   
+     * @param   
+     * @return  integer
+     */
+    public function trans_rollback() {
+        $this->query('ROLLBACK');
+    }
 
     /**
      * 
@@ -73,10 +109,14 @@ class db_model {
      * @return  array       取得した情報
      */
     public function select_by_id($table, $id, $key = 'id') {
-        $params = array(
-            ':' . $key => $id,
-        );
-        return $this->select('SELECT * FROM ' . $table . ' WHERE ' . $key . ' = :' . $key, $params);
+        try {
+            $params = array(
+                ':' . $key => $id,
+            );
+            return $this->select('SELECT * FROM ' . $table . ' WHERE ' . $key . ' = :' . $key, $params);
+        } catch (PDOException $e) {
+            throw new Exception();
+        }
     }
 
     /**
@@ -87,8 +127,12 @@ class db_model {
      * @return  array
      */
     public function query($sql = NULL, $parameters = array()) {
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute($parameters);
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($parameters);
+        } catch (PDOException $e) {
+            throw new Exception();
+        }
     }
 
 
@@ -100,19 +144,23 @@ class db_model {
      * @return  array
      */
     public function select($sql = NULL, $parameters = array()) {
-        $stmt = $this->db->prepare(str_replace(array("SELECT ", "select "), "SELECT SQL_CALC_FOUND_ROWS ", $sql));
-        $ret = $stmt->execute($parameters);
-        if ($ret) {
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->prepare(str_replace(array("SELECT ", "select "), "SELECT SQL_CALC_FOUND_ROWS ", $sql));
+            $ret = $stmt->execute($parameters);
+            if ($ret) {
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $sql = 'SELECT FOUND_ROWS() AS count';
-            $stmt = $this->db->query($sql);
-            $result2 = $stmt->fetch();
-            $this->found_rows = $result2['count'];
+                $sql = 'SELECT FOUND_ROWS() AS count';
+                $stmt = $this->db->query($sql);
+                $result2 = $stmt->fetch();
+                $this->found_rows = $result2['count'];
 
-            return $result;
-        } else {
-            return array();
+                return $result;
+            } else {
+                return array();
+            }
+        } catch (PDOException $e) {
+            throw new Exception();
         }
     }
 
@@ -125,20 +173,26 @@ class db_model {
      * @return
      */
     public function insert($tblname = NULL, $parameters = array()) {
-        $fmt = "INSERT INTO %s (%s) VALUES(%s);";
-        $sql = sprintf(
-                $fmt,
-                $tblname,
-                implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`";'), array_keys($parameters))),
-                implode(",", array_keys($parameters))
-        );
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute($parameters);
+        try {
+            $fmt = "INSERT INTO %s (%s) VALUES(%s);";
+            $sql = sprintf(
+                    $fmt,
+                    $tblname,
+                    implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`";'), array_keys($parameters))),
+                    implode(",", array_keys($parameters))
+            );
+            $stmt = $this->db->prepare($sql);
+            if (!$stmt->execute($parameters)) {
+                throw new Exception();
+            }
 
-        $sql = 'SELECT last_insert_id() AS id';
-        $stmt = $this->db->query($sql);
-        $result = $stmt->fetch();
-        $this->last_id = $result['id'];
+            $sql = 'SELECT last_insert_id() AS id';
+            $stmt = $this->db->query($sql);
+            $result = $stmt->fetch();
+            $this->last_id = $result['id'];
+        } catch (PDOException $e) {
+            throw new Exception();
+        }
     }
 
     /**
@@ -150,15 +204,19 @@ class db_model {
      * @return
      */
     public function update($tblname = NULL, $key = array(), $parameters = array()) {
-        $fmt = "UPDATE %s SET %s WHERE %s;";
-        $sql = sprintf(
-                $fmt,
-                $tblname,
-                implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`" . "=" . $e;'), array_keys($parameters))),
-                implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`" . "=" . $e;'), array_keys($key)))
-        );
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array_merge($key, $parameters));
+        try {
+            $fmt = "UPDATE %s SET %s WHERE %s;";
+            $sql = sprintf(
+                    $fmt,
+                    $tblname,
+                    implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`" . "=" . $e;'), array_keys($parameters))),
+                    implode(",", array_map(create_function('$e', 'return "`".trim($e, ":")."`" . "=" . $e;'), array_keys($key)))
+            );
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(array_merge($key, $parameters));
+        } catch (PDOException $e) {
+            throw new Exception();
+        }
     }
 }
 
