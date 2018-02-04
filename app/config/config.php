@@ -7,3 +7,6 @@ $config['library'] = array(
 );
 
 
+// ファイルアップロード用ディレクトリ
+$config['user_dir'] = '/userdata/';
+

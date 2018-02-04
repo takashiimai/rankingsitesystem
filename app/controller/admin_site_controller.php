@@ -14,6 +14,8 @@ class admin_site_controller extends app_controller {
     // 一覧
     public function index() {
         try {
+            $this->model("file_model");
+            $this->file_model->index();
     		$this->view('admin_site_index', $views);
         } catch (Exception $e) {
         }
@@ -55,10 +57,12 @@ class admin_site_controller extends app_controller {
 
     // 登録/変更
     public function edit_post() {
+        global $config;
         try {
             $post = $this->request->post();
             $file = $_FILES;
             $this->log->info($file);
+
             $error = array();
             if (!strlen($post['name'])) {
                 $error[] = '※種別名を入力してください。';
@@ -72,6 +76,14 @@ class admin_site_controller extends app_controller {
                 $result['status'] = 'ERROR';
                 $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
             } else {
+                // 画像アップロード処理
+                $this->model("file_model");
+                if (!strlen($post['main_image'])) {
+                    $fn = $this->file_model->upload($file['upload_file'], $config['image_upload_dir']);
+                } else {
+                    $fn = $post['main_image'];
+                }
+
                 $this->model("site_model");
                 $this->site_model->trans_start();
 
@@ -79,6 +91,7 @@ class admin_site_controller extends app_controller {
                     ':name' => $post['name'],
                     ':category_id' => $post['category_id'],
                     ':url' => $post['url'],
+                    ':main_image' => $fn,
                     ':orderby' => $post['orderby'],
                 );
                 if ($post['id'] > 0) {
@@ -88,6 +101,8 @@ class admin_site_controller extends app_controller {
                     $this->site_model->insert('site', $params);
                     $id = $this->site_model->get_last_insert_id();
                 }
+
+                
 
                 // サイトアイテム処理
                 $this->model("site_item_model");

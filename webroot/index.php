@@ -121,6 +121,7 @@ class main {
         $config_common = $this->_config_common();
         $config_env    = $this->_config_env();
         $ctrl->config = array_merge($config_common, $config_env);
+        $GLOBALS['config'] = $ctrl->config;
 
         // ライブラリロード
         if (isset($ctrl->config['library']) && is_array($ctrl->config['library'])) {
