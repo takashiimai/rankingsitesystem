@@ -65,3 +65,30 @@
 )
 
 18/02/03 08:01:49 (PID.3701)admin_site_controller.php[L.91] KKKKKKKKKKKK
+18/02/04 01:07:58 (PID.3689)admin_site_controller.php[L.61] 
+18/02/04 01:08:23 (PID.3688)admin_site_controller.php[L.61] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpfTp307
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 01:08:39 (PID.3697)admin_site_controller.php[L.61] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+

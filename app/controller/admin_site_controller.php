@@ -57,6 +57,8 @@ class admin_site_controller extends app_controller {
     public function edit_post() {
         try {
             $post = $this->request->post();
+            $file = $_FILES;
+            $this->log->info($file);
             $error = array();
             if (!strlen($post['name'])) {
                 $error[] = '※種別名を入力してください。';

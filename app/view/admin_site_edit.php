@@ -16,7 +16,7 @@
 
     <div class="error"></div>
 
-    <form method="post" action="/admin_site/edit_post">
+    <form method="post" action="/admin_site/edit_post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
         <div class="columns">
             <div class="column is-one-quarter">
@@ -70,6 +70,21 @@
             </div>
         </div>
 
+        <div class="columns">
+            <div class="column is-one-quarter">
+                メイン画像
+            </div>
+            <div class="column is-three-quarters">
+                <div class="control">
+                    <input type="hidden" name="main_image"  value="<?php echo $post['main_image']; ?>">
+                    <label for="upload_file">
+                        <span class="button is-primary">写真を選択</span>
+                        <figure id="upload_file_thumb" class="image is-128x128"></figure>
+                        <input id="upload_file" class="input" type="file" name="upload_file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" style="display:none">
+                    </label>
+                </div>
+            </div>
+        </div>
 
         <div class="columns">
             <div class="column is-one-quarter">
@@ -92,7 +107,7 @@
     
 </div>
 
-
+<script src="/js/jquery.uploadThumbs.js"></script>
 <script>
 
 $(function(){
@@ -102,20 +117,23 @@ $(function(){
 
 
     $('form').submit(function(event) {
-
         // HTMLでの送信をキャンセル
         event.preventDefault();
 
         $('button[type="submit"]').addClass("is-loading");
  
-       // 操作対象のフォーム要素を取得
-       var $form = $(this);
+        // 操作対象のフォーム要素を取得
+        var $form = $(this);
+        var formData = new FormData($(this).get(0));
  
         // 送信
         $.ajax({
             url: $form.attr('action'),
             type: $form.attr('method'),
-            data: $form.serialize(),
+//            data: $form.serialize(),
+            processData: false,
+            contentType: false,
+            data: formData,
             dataType: 'json',
             timeout: 10000,  // 単位はミリ秒
         }).done(function(data,textStatus,XHR) {
@@ -139,6 +157,9 @@ $(function(){
         refresh_config_site_item(v);
     });
 
+    $('input#upload_file').uploadThumbs({
+        position : '#upload_file_thumb', 
+    });
 });
 
 function refresh_config_site_item(category_id) {
