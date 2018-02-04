@@ -79,7 +79,11 @@
                     <input type="hidden" name="main_image"  value="<?php echo $post['main_image']; ?>">
                     <label for="upload_file">
                         <span class="button is-primary">写真を選択</span>
-                        <figure id="upload_file_thumb" class="image is-128x128"></figure>
+                        <figure id="upload_file_thumb" class="image is-128x128">
+<?php if ($post['main_image']): ?>
+                            <img data-type="main_image" src="<?php echo $post['main_image']; ?>">
+<?php endif; ?>
+                        </figure>
                         <input id="upload_file" class="input" type="file" name="upload_file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" style="display:none">
                     </label>
                 </div>
@@ -151,6 +155,12 @@ $(function(){
         });
 
     });
+
+    $(document).on('change', 'input[name="upload_file"]', function(event) {
+        $('[data-type="main_image"]').remove();
+        $('input[name="main_image"]').val("");
+    });
+
 
     $(document).on('change', 'select[name="category_id"]', function(event) {
         var v = $('select[name="category_id"]').val();

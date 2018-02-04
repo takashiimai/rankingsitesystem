@@ -92,3 +92,358 @@
 
 )
 
+18/02/04 03:15:27 (PID.3698)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpUGMnJZ
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 03:15:34 (PID.3690)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpsf3uun
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 03:15:44 (PID.3686)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/php20ce7P
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:17:27 (PID.8985)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpbvwdsP
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:17:56 (PID.8987)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpiuURLg
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:18:44 (PID.8988)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpsjXS2F
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:20:00 (PID.8987)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpLNFGD4
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:22:16 (PID.8988)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpu1X9Re
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:22:53 (PID.8985)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpxe2Erb
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:23:42 (PID.8986)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpIGccnp
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:25:30 (PID.8984)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpotVKQK
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 12:28:14 (PID.8989)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpKUI7HQ
+            [error] => 0
+            [size] => 123095
+        )
+
+)
+
+18/02/04 12:28:14 (PID.8989)file_model.php[L.50] /var/www/rankingsitesystem/user_data/db/
+18/02/04 13:00:49 (PID.8987)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpJ75LYY
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:00:49 (PID.8987)file_model.php[L.37] /user_data/images/
+18/02/04 13:00:49 (PID.8987)file_model.php[L.51] /var/www/rankingsitesystem/user_data/df/
+18/02/04 13:02:14 (PID.8986)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpEnLWHu
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:02:14 (PID.8986)file_model.php[L.37] /user_data/images/
+18/02/04 13:02:14 (PID.8986)file_model.php[L.51] /var/www/rankingsitesystem/user_data/images/22/
+18/02/04 13:03:17 (PID.8989)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpJmMRL2
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:03:17 (PID.8989)file_model.php[L.37] /user_data/images/
+18/02/04 13:03:17 (PID.8989)file_model.php[L.51] /var/www/rankingsitesystem/user_data/images/58/
+18/02/04 13:03:17 (PID.8989)file_model.php[L.54] 結果:
+18/02/04 13:05:23 (PID.8985)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpS20J6C
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:05:23 (PID.8985)file_model.php[L.37] /userdata/images/
+18/02/04 13:05:23 (PID.8985)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/6f/
+18/02/04 13:05:23 (PID.8985)file_model.php[L.54] 結果:1
+18/02/04 13:06:48 (PID.8984)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpbpox4o
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:06:48 (PID.8984)file_model.php[L.37] /userdata/images/
+18/02/04 13:06:48 (PID.8984)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/0c/
+18/02/04 13:06:48 (PID.8984)file_model.php[L.54] 結果:1
+18/02/04 13:07:26 (PID.8988)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpfjEkvJ
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:07:26 (PID.8988)file_model.php[L.37] /userdata/images/
+18/02/04 13:07:26 (PID.8988)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/26/
+18/02/04 13:07:26 (PID.8988)file_model.php[L.54] 結果:1
+18/02/04 13:31:39 (PID.8985)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 9.gif
+            [type] => image/gif
+            [tmp_name] => /tmp/php52HS8X
+            [error] => 0
+            [size] => 898
+        )
+
+)
+
+18/02/04 13:31:39 (PID.8985)file_model.php[L.37] /userdata/images/
+18/02/04 13:31:39 (PID.8985)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/ad/
+18/02/04 13:31:39 (PID.8985)file_model.php[L.54] 結果:1
+18/02/04 13:31:49 (PID.8987)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/04 13:31:49 (PID.8987)file_model.php[L.37] /userdata/images/
+18/02/04 13:34:01 (PID.8986)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpWx9FuS
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 13:34:01 (PID.8986)file_model.php[L.37] /userdata/images/
+18/02/04 13:34:01 (PID.8986)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/50/
+18/02/04 13:34:01 (PID.8986)file_model.php[L.54] 結果:1
+18/02/04 13:34:08 (PID.8984)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/04 13:34:14 (PID.8984)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 6.gif
+            [type] => image/gif
+            [tmp_name] => /tmp/phpquqlsq
+            [error] => 0
+            [size] => 900
+        )
+
+)
+
+18/02/04 13:34:14 (PID.8984)file_model.php[L.37] /userdata/images/
+18/02/04 13:34:14 (PID.8984)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/3b/
+18/02/04 13:34:14 (PID.8984)file_model.php[L.54] 結果:1
+18/02/04 13:34:20 (PID.8984)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/04 13:34:39 (PID.8988)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 旧中川ハゼ釣りポイント.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpgqlWuX
+            [error] => 0
+            [size] => 695490
+        )
+
+)
+
+18/02/04 13:34:39 (PID.8988)file_model.php[L.37] /userdata/images/
+18/02/04 13:34:39 (PID.8988)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/e9/
+18/02/04 13:34:39 (PID.8988)file_model.php[L.54] 結果:1
