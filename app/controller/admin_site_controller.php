@@ -14,8 +14,8 @@ class admin_site_controller extends app_controller {
     // 一覧
     public function index() {
         try {
-            $this->model("file_model");
-            $this->file_model->index();
+            $this->model("site_model");
+            $views['lists'] = $this->site_model->get_list();
     		$this->view('admin_site_index', $views);
         } catch (Exception $e) {
         }

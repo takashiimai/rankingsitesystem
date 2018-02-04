@@ -14,6 +14,9 @@ class admin_category_controller extends app_controller {
     // 一覧
     public function index() {
         try {
+            $this->model("category_model");
+            $views['lists'] = $this->category_model->get_list();
+
     		$this->view('admin_category_index', $views);
         } catch (Exception $e) {
         }

@@ -7,11 +7,6 @@
                     種別管理
                 </div>
             </div>
-            <div class="column is-half has-text-right">
-                <span class="button">
-                    <a href="/admin_category/">キャンセル</a>
-                </span>
-            </div>
         </div>
 
         <div class="error"></div>

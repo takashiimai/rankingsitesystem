@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+html{
+	font:100%/1.5 "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; /*10px*/
+}
+
+.pointer {
+    cursor: pointer;
+}
