@@ -127,6 +127,8 @@ class admin_category_controller extends app_controller {
                     $this->config_site_item_model->update('config_site_item', array(':id' => $post['id']), $params);
                     $id = $post['id'];
                 } else {
+                    $max = $this->config_site_item_model->select('SELECT MAX(orderby) AS max FROM config_site_item WHERE category_id = :category_id', array(':category_id' => $post['category_id']));
+                    $params[':orderby'] = $max[0]['max'] + 10;
                     $this->config_site_item_model->insert('config_site_item', $params);
                     $id = $this->config_site_item_model->get_last_insert_id();
                 }
@@ -188,6 +190,29 @@ class admin_category_controller extends app_controller {
         }
     }
 
+    // 表示順変更
+    public function change_orderby_config_site_item() {
+        try {
+            $post = $this->request->post();
+
+            $this->model("config_site_item_model");
+            $cnt = count($post['orderby']);
+            for($i = 0; $i < $cnt; $i++) {
+                $key = array(
+                    ':id' => $post['id'][ $i ],
+                );
+                $params = array(
+                    ':orderby' => $post['orderby'][ $i ],
+                );
+                $this->config_site_item_model->update('config_site_item', $key, $params);
+            }
+
+            $result['status'] = 'SUCCESS';
+            echo json_encode($result);
+        } catch (Exception $e) {
+            header('HTTP', true, 400);
+        }
+    }
 
 }
 
