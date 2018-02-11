@@ -44,6 +44,7 @@ class admin_category_controller extends app_controller {
                     'id' => '',
                     'name' => '',
                     'slug' => '',
+                    'templete' => '',
                 );
                 $views['post'] = $post;
             }
@@ -77,6 +78,7 @@ class admin_category_controller extends app_controller {
                 $params = array(
                     ':name' => $post['name'],
                     ':slug' => $post['slug'],
+                    ':templete' => $post['templete'],
                 );
                 if ($post['id'] > 0) {
                     $this->category_model->update('category', array(':id' => $post['id']), $params);
@@ -120,6 +122,7 @@ class admin_category_controller extends app_controller {
                     ':category_id' => $post['category_id'],
                     ':name' => $post['name'],
                     ':slug' => $post['slug'],
+                    ':templete' => $post['templete'],
                 );
                 if ($post['id'] > 0) {
                     $this->config_site_item_model->update('config_site_item', array(':id' => $post['id']), $params);
@@ -140,6 +143,39 @@ class admin_category_controller extends app_controller {
             header('HTTP', true, 400);
         }
     }
+
+
+    // サイトアイテム削除
+    public function delete_site_item() {
+        try {
+            $post = $this->request->post();
+            $error = array();
+            if (!strlen($post['config_site_item_id'])) {
+                $error[] = '※IDを入力してください。';
+            }
+
+            if (count($error)) {
+                $views['error'] = $error;
+                $result['status'] = 'ERROR';
+                $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
+            } else {
+                $this->model("config_site_item_model");
+                $params = array(
+                    ':id' => $post['config_site_item_id'],
+                );
+                $this->config_site_item_model->query('DELETE FROM config_site_item WHERE id = :id', $params);
+
+                $result['status'] = 'SUCCESS';
+                $result['html'] = '';
+            }
+
+            echo json_encode($result);
+
+        } catch (Exception $e) {
+            header('HTTP', true, 400);
+        }
+    }
+
 
 }
 

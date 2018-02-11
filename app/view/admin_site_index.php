@@ -22,7 +22,7 @@
     </div>
 <?php else: ?>
 
-    <table class="table is-striped">
+    <table class="table is-striped is-hoverable">
         <thead>
             <tr>
                 <th>ID</th>

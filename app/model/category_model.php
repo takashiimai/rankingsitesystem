@@ -20,9 +20,14 @@ class category_model extends db_model {
      * @param
      * @return
      */
-    public function get_list() {
-        $query = 'SELECT * FROM category';
-        return $this->select($query);
+    public function get_list($slug = "") {
+        $params = array();
+        $query = 'SELECT * FROM category ';
+        if (strlen($slug)) {
+            $params[':slug'] = $slug;
+            $query .= 'WHERE slug = :slug ';
+        }
+        return $this->select($query, $params);
     }
 
 

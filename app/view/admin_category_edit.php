@@ -48,6 +48,17 @@
                 </div>
             </div>
 
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    表示テンプレート
+                </div>
+                <div class="column is-three-quarters">
+                    <div class="control">
+                        <textarea name="templete" class="textarea"><?php echo $post['templete']; ?></textarea>
+                    </div>
+                </div>
+            </div>
+
             <div class="control">
                 <button type="submit" class="button is-link">登録</button>
             </div>
@@ -78,7 +89,7 @@
             </div>
         </div>
 
-        <table class="table">
+        <table class="table is-hoverable">
             <thead>
                 <tr>
                     <th>アイテムタグ名称</th>
@@ -88,10 +99,10 @@
             </thead>
             <tbody>
 <?php foreach ($site_item_lists as $row): ?>
-                <tr>
+                <tr data-id="<?php echo $row['id']; ?>">
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['slug']; ?></td>
-                    <td><button class="button" onclick="delete_site_item(<?php echo $row['id']; ?>)">削除</button></td>
+                    <td><a data-action="delete-item" class="button" data-id="<?php echo $row['id']; ?>">削除</a></td>
                 </tr>                    
 <?php endforeach; ?>
             </tbody>
@@ -105,6 +116,7 @@
 
     $(function(){
 
+        // サイト登録アイテムの追加
         $(document).on('click', 'a[data-action="add-item"]', function(event) {
             // 送信
             $.ajax({
@@ -123,6 +135,33 @@
                 } else {
                     alert("登録しました");
                     location.href = '/admin_category/edit/' + $('input[name="id"]').val();
+                }
+            }).fail(function(xhr, textStatus, errorThrown) {
+                console.log(xhr);
+                alert("エラーが発生しました");
+            }).always(function() {
+                $('button[type="submit"]').removeClass("is-loading");
+            });
+        });
+
+        // サイト登録アイテムの削除
+        $(document).on('click', 'a[data-action="delete-item"]', function(event) {
+            var data_id = $(this).attr("data-id");
+            // 送信
+            $.ajax({
+                url: '/admin_category/delete_site_item',
+                type: 'post',
+                data: {
+                    config_site_item_id: data_id
+                },
+                dataType: 'json',
+                timeout: 10000,  // 単位はミリ秒
+            }).done(function(data,textStatus,XHR) {
+                if (data['status'] == 'ERROR') {
+                    $('div.error').html(data['html']);
+                } else {
+                    alert("削除しました");
+                    $('tr[data-id="' + data_id + '"]').remove();
                 }
             }).fail(function(xhr, textStatus, errorThrown) {
                 console.log(xhr);
