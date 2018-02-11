@@ -159,10 +159,23 @@ class admin_category_controller extends app_controller {
                 $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
             } else {
                 $this->model("config_site_item_model");
+                $this->model("site_item_model");
+                $this->config_site_item_model->trans_start();
+
                 $params = array(
                     ':id' => $post['config_site_item_id'],
                 );
                 $this->config_site_item_model->query('DELETE FROM config_site_item WHERE id = :id', $params);
+
+
+                $params = array(
+                    ':tag' => $post['slug'],
+                    ':category_id' => $post['category_id'],
+                );
+                $query = 'DELETE FROM site_item WHERE site_id IN (SELECT id FROM site WHERE category_id = :category_id) AND tag = :tag ';
+                $this->site_item_model->query($query, $params);
+
+                $this->config_site_item_model->trans_commit();
 
                 $result['status'] = 'SUCCESS';
                 $result['html'] = '';

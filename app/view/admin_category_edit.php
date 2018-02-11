@@ -102,7 +102,7 @@
                 <tr data-id="<?php echo $row['id']; ?>">
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['slug']; ?></td>
-                    <td><a data-action="delete-item" class="button" data-id="<?php echo $row['id']; ?>">削除</a></td>
+                    <td><a data-action="delete-item" class="button" data-id="<?php echo $row['id']; ?>" data-slug="<?php echo $row['slug']; ?>">削除</a></td>
                 </tr>                    
 <?php endforeach; ?>
             </tbody>
@@ -146,13 +146,17 @@
 
         // サイト登録アイテムの削除
         $(document).on('click', 'a[data-action="delete-item"]', function(event) {
+            var id = $('form input[name="id"]').val();
             var data_id = $(this).attr("data-id");
+            var slug = $(this).attr("data-slug");
             // 送信
             $.ajax({
                 url: '/admin_category/delete_site_item',
                 type: 'post',
                 data: {
-                    config_site_item_id: data_id
+                    category_id: id,
+                    config_site_item_id: data_id,
+                    slug: slug,
                 },
                 dataType: 'json',
                 timeout: 10000,  // 単位はミリ秒
