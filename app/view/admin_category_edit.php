@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <table class="table is-hoverable">
+        <table class="table is-hoverable sortable">
             <thead>
                 <tr>
                     <th>アイテムタグ名称</th>
@@ -99,10 +99,10 @@
             </thead>
             <tbody>
 <?php foreach ($site_item_lists as $row): ?>
-                <tr data-id="<?php echo $row['id']; ?>">
+                <tr id="<?php echo $row['id']; ?>" data-id="<?php echo $row['id']; ?>">
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['slug']; ?></td>
-                    <td><a data-action="delete-item" class="button" data-id="<?php echo $row['id']; ?>">削除</a></td>
+                    <td><a data-action="delete-item" class="button" data-id="<?php echo $row['id']; ?>" data-slug="<?php echo $row['slug']; ?>">削除</a></td>
                 </tr>                    
 <?php endforeach; ?>
             </tbody>
@@ -110,11 +110,49 @@
 <?php endif; ?>
     
     </div>
-
-
-    <script>
+    
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
 
     $(function(){
+
+        $("table.sortable tbody").sortable({
+            update: function(){
+                var orderby = [
+<?php
+    $orderby = array();
+    foreach ($site_item_lists as $row) {
+        $orderby[] = $row['orderby'];
+    }
+    echo implode(",", $orderby);
+?>                
+                ];
+                var id = $(this).sortable("toArray");
+
+                // 送信
+                $.ajax({
+                    url: '/admin_category/change_orderby_config_site_item',
+                    type: 'post',
+                    data: {
+                        orderby: orderby,
+                        id: id,
+                    },
+                    dataType: 'json',
+                    timeout: 10000,  // 単位はミリ秒
+                }).done(function(data,textStatus,XHR) {
+                    if (data['status'] == 'ERROR') {
+                        $('div.error').html(data['html']);
+                    }
+                }).fail(function(xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    alert("エラーが発生しました");
+                }).always(function() {
+                    $('button[type="submit"]').removeClass("is-loading");
+                });
+
+            }
+        });
 
         // サイト登録アイテムの追加
         $(document).on('click', 'a[data-action="add-item"]', function(event) {
@@ -146,13 +184,17 @@
 
         // サイト登録アイテムの削除
         $(document).on('click', 'a[data-action="delete-item"]', function(event) {
+            var id = $('form input[name="id"]').val();
             var data_id = $(this).attr("data-id");
+            var slug = $(this).attr("data-slug");
             // 送信
             $.ajax({
                 url: '/admin_category/delete_site_item',
                 type: 'post',
                 data: {
-                    config_site_item_id: data_id
+                    category_id: id,
+                    config_site_item_id: data_id,
+                    slug: slug,
                 },
                 dataType: 'json',
                 timeout: 10000,  // 単位はミリ秒
@@ -161,7 +203,8 @@
                     $('div.error').html(data['html']);
                 } else {
                     alert("削除しました");
-                    $('tr[data-id="' + data_id + '"]').remove();
+                    location.href = '/admin_category/edit/' + $('input[name="id"]').val();
+//                    $('tr[data-id="' + data_id + '"]').remove();
                 }
             }).fail(function(xhr, textStatus, errorThrown) {
                 console.log(xhr);
@@ -207,5 +250,5 @@
     });
 
 
-    </script>
+</script>
 

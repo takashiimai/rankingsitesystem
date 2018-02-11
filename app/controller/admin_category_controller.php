@@ -108,7 +108,7 @@ class admin_category_controller extends app_controller {
             if (!strlen($post['name'])) {
                 $error[] = '※種別名を入力してください。';
             }
-            if (!preg_match('/^[a-zA-Z0-9]{4,200}$/', $post['slug'])) {
+            if (!preg_match('/^[a-zA-Z0-9_\-]{3,200}$/', $post['slug'])) {
                 $error[] = '※スラッグを半角英数字 4文字以上で入力してください。';
             }
 
@@ -122,12 +122,13 @@ class admin_category_controller extends app_controller {
                     ':category_id' => $post['category_id'],
                     ':name' => $post['name'],
                     ':slug' => $post['slug'],
-                    ':templete' => $post['templete'],
                 );
                 if ($post['id'] > 0) {
                     $this->config_site_item_model->update('config_site_item', array(':id' => $post['id']), $params);
                     $id = $post['id'];
                 } else {
+                    $max = $this->config_site_item_model->select('SELECT MAX(orderby) AS max FROM config_site_item WHERE category_id = :category_id', array(':category_id' => $post['category_id']));
+                    $params[':orderby'] = $max[0]['max'] + 10;
                     $this->config_site_item_model->insert('config_site_item', $params);
                     $id = $this->config_site_item_model->get_last_insert_id();
                 }
@@ -160,10 +161,23 @@ class admin_category_controller extends app_controller {
                 $result['html'] = $this->view('parts_admin_edit_error', $views, TRUE);
             } else {
                 $this->model("config_site_item_model");
+                $this->model("site_item_model");
+                $this->config_site_item_model->trans_start();
+
                 $params = array(
                     ':id' => $post['config_site_item_id'],
                 );
                 $this->config_site_item_model->query('DELETE FROM config_site_item WHERE id = :id', $params);
+
+
+                $params = array(
+                    ':tag' => $post['slug'],
+                    ':category_id' => $post['category_id'],
+                );
+                $query = 'DELETE FROM site_item WHERE site_id IN (SELECT id FROM site WHERE category_id = :category_id) AND tag = :tag ';
+                $this->site_item_model->query($query, $params);
+
+                $this->config_site_item_model->trans_commit();
 
                 $result['status'] = 'SUCCESS';
                 $result['html'] = '';
@@ -176,6 +190,29 @@ class admin_category_controller extends app_controller {
         }
     }
 
+    // 表示順変更
+    public function change_orderby_config_site_item() {
+        try {
+            $post = $this->request->post();
+
+            $this->model("config_site_item_model");
+            $cnt = count($post['orderby']);
+            for($i = 0; $i < $cnt; $i++) {
+                $key = array(
+                    ':id' => $post['id'][ $i ],
+                );
+                $params = array(
+                    ':orderby' => $post['orderby'][ $i ],
+                );
+                $this->config_site_item_model->update('config_site_item', $key, $params);
+            }
+
+            $result['status'] = 'SUCCESS';
+            echo json_encode($result);
+        } catch (Exception $e) {
+            header('HTTP', true, 400);
+        }
+    }
 
 }
 

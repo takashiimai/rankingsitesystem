@@ -1,5 +1,6 @@
 <?php
     function disp_view($templete, $site) {
+        $templete = str_replace(array("\r","\n"), "", $templete);
         $replace = array();
         $site_keys = array(
             'name',
@@ -12,8 +13,20 @@
 
         $site_item_keys = array_keys($site['items']);
         foreach ($site_item_keys as $key) {
-            $replace[ '{{'.$key.'}}' ] = isset($site['items'][ $key ]['meta']) ? $site['items'][ $key ]['meta'] : '';
+            $replace[ '{{'.$key.'}}' ] = isset($site['items'][ $key ]['meta']) && strlen($site['items'][ $key ]['meta']) ? $site['items'][ $key ]['meta'] : '';
         }
+
+        // ループ処理
+        preg_match("/{%loop%}(.+){%endloop%}/", $templete, $matches);
+        if (isset($matches[1]) && strlen($matches[1])) {
+            $rep = '';
+            foreach ($site['items'] as $key => $row) {
+                if (isset($row['meta']) && strlen($row['meta']))
+                    $rep .= str_replace(array("{{item.tag}}", "{{item.meta}}"), array($row['name'], $row['meta']), $matches[1]);
+            }
+            $templete = str_replace($matches[0], $rep, $templete);
+        }
+
         return str_replace(array_keys($replace), array_values($replace), $templete);
     }
 
