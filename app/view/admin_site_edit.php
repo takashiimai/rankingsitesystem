@@ -90,17 +90,6 @@
             </div>
         </div>
 
-        <div class="columns">
-            <div class="column is-one-quarter">
-                表示順
-            </div>
-            <div class="column is-three-quarters">
-                <div class="control">
-                    <input class="input" type="text" name="orderby"  value="<?php echo $post['orderby']; ?>">
-                </div>
-            </div>
-        </div>
-
         <div id="area_site_items_form"></div>
 
         <div class="control">

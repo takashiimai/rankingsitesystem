@@ -43,7 +43,7 @@ class admin_site_controller extends app_controller {
                     'category_id' => '', 
                     'name' => '',
                     'url' => '',
-                    'orderby' => '10000',
+                    'orderby' => '',
                 );
                 $views['post'] = $post;
             }
@@ -92,12 +92,14 @@ class admin_site_controller extends app_controller {
                     ':category_id' => $post['category_id'],
                     ':url' => $post['url'],
                     ':main_image' => $fn,
-                    ':orderby' => $post['orderby'],
                 );
                 if ($post['id'] > 0) {
                     $this->site_model->update('site', array(':id' => $post['id']), $params);
                     $id = $post['id'];
                 } else {
+                    $max = $this->site_model->select('SELECT MAX(orderby) AS max FROM site ');
+                    $params[':orderby'] = $max[0]['max'] + 10;
+
                     $this->site_model->insert('site', $params);
                     $id = $this->site_model->get_last_insert_id();
                 }
@@ -158,6 +160,29 @@ class admin_site_controller extends app_controller {
         }
     }
 
+    // 表示順変更
+    public function change_orderby_site() {
+        try {
+            $post = $this->request->post();
+
+            $this->model("site_model");
+            $cnt = count($post['orderby']);
+            for($i = 0; $i < $cnt; $i++) {
+                $key = array(
+                    ':id' => $post['id'][ $i ],
+                );
+                $params = array(
+                    ':orderby' => $post['orderby'][ $i ],
+                );
+                $this->site_model->update('site', $key, $params);
+            }
+
+            $result['status'] = 'SUCCESS';
+            echo json_encode($result);
+        } catch (Exception $e) {
+            header('HTTP', true, 400);
+        }
+    }
 
 }
 
