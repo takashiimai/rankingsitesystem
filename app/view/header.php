@@ -17,5 +17,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
 <script defer src="//use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 
+<link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>

@@ -447,3 +447,75 @@
 18/02/04 13:34:39 (PID.8988)file_model.php[L.37] /userdata/images/
 18/02/04 13:34:39 (PID.8988)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/e9/
 18/02/04 13:34:39 (PID.8988)file_model.php[L.54] 結果:1
+18/02/04 14:17:45 (PID.8986)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/04 14:17:45 (PID.8986)file_model.php[L.37] /userdata/images/
+18/02/04 14:17:55 (PID.8988)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => kako-oYxcnIkU5dk1SLGl.png
+            [type] => image/png
+            [tmp_name] => /tmp/php0iFpVw
+            [error] => 0
+            [size] => 331798
+        )
+
+)
+
+18/02/04 14:17:55 (PID.8988)file_model.php[L.37] /userdata/images/
+18/02/04 14:17:55 (PID.8988)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/a9/
+18/02/04 14:17:55 (PID.8988)file_model.php[L.54] 結果:1
+18/02/10 14:11:44 (PID.3690)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/10 15:17:14 (PID.3690)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/10 21:13:14 (PID.3678)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 旧中川ハゼ釣りポイント.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpy4LXPq
+            [error] => 0
+            [size] => 695490
+        )
+
+)
+
+18/02/10 21:13:14 (PID.3678)file_model.php[L.37] /userdata/images/
+18/02/10 21:13:14 (PID.3678)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/6a/
+18/02/10 21:13:14 (PID.3678)file_model.php[L.54] 結果:1

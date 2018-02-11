@@ -6,6 +6,7 @@ define('APP_PATH',      dirname(__FILE__) . '/../app');
 
 require_once(SYSTEM_PATH . '/core_class.php');
 require_once(SYSTEM_PATH . '/db_model.php');
+require_once(SYSTEM_PATH . '/dBug.php');
 require_once(APP_PATH .    '/controller/app_controller.php');
 require_once(APP_PATH .    '/model/app_model.php');
 

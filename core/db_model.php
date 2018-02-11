@@ -1,6 +1,6 @@
 <?php
 
-class db_model {
+class db_model extends core {
 
     protected $db = NULL;
     protected $last_id = NULL;
@@ -129,7 +129,7 @@ class db_model {
     public function query($sql = NULL, $parameters = array()) {
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->execute($parameters);
+            return $stmt->execute($parameters);
         } catch (PDOException $e) {
             throw new Exception();
         }
