@@ -108,7 +108,7 @@ class admin_category_controller extends app_controller {
             if (!strlen($post['name'])) {
                 $error[] = '※種別名を入力してください。';
             }
-            if (!preg_match('/^[a-zA-Z0-9]{4,200}$/', $post['slug'])) {
+            if (!preg_match('/^[a-zA-Z0-9_\-]{3,200}$/', $post['slug'])) {
                 $error[] = '※スラッグを半角英数字 4文字以上で入力してください。';
             }
 
@@ -122,7 +122,6 @@ class admin_category_controller extends app_controller {
                     ':category_id' => $post['category_id'],
                     ':name' => $post['name'],
                     ':slug' => $post['slug'],
-                    ':templete' => $post['templete'],
                 );
                 if ($post['id'] > 0) {
                     $this->config_site_item_model->update('config_site_item', array(':id' => $post['id']), $params);
