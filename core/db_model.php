@@ -13,6 +13,7 @@ class db_model extends core {
      * @return
      */
     public function __construct() {
+        parent::__construct();
     }
 
     /**

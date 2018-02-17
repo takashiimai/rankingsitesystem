@@ -14,6 +14,10 @@ class admin_site_controller extends app_controller {
     // 一覧
     public function index() {
         try {
+            // 種別一覧取得
+            $this->model("category_model");
+            $views['categorys'] = $this->category_model->get_list();
+
             $this->model("site_model");
             $views['lists'] = $this->site_model->get_list();
     		$this->view('admin_site_index', $views);
@@ -60,6 +64,8 @@ class admin_site_controller extends app_controller {
         global $config;
         try {
             $post = $this->request->post();
+            array_walk($post['site_item'], function(&$value){ $value = trim($value); });
+
             $file = $_FILES;
             $this->log->info($file);
 

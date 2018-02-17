@@ -24,9 +24,16 @@ class site_model extends db_model {
         $params = array();
         $query  = 'SELECT s.*, c.name AS category_name FROM site s ';
         $query .= 'LEFT JOIN category c ON c.id = s.category_id ';
+        $query .= 'WHERE 1  ';
         if ($slug) {
             $params[':slug'] = $slug;
             $query .= 'WHERE c.slug = :slug ';
+        }
+        $category_id = $this->request->post('category_id');
+        $this->session->set('category_id', $category_id);
+        if ($category_id) {
+            $params[':category_id'] = $category_id;
+            $query .= 'AND s.category_id = :category_id ';
         }
         $query .= 'ORDER BY s.orderby ';
         return $this->select($query, $params);
