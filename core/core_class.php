@@ -15,7 +15,9 @@ class core {
      * @return
      */
     public function __construct() {
-//        $this->library('log');
+        $this->library('log');
+        $this->library('session');
+        $this->library('request');
     }
 
     /**

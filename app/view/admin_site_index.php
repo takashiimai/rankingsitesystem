@@ -14,11 +14,29 @@
         </div>
     </div>
    
+    <form method="post" action="/admin_site/">
+        <div class="field has-addons">
+            <div class="control">
+                <div class="select">
+                    <select name="category_id">
+                        <option value="">サイト種別</option>
+<?php foreach ($categorys as $row): ?>
+                        <option value="<?php echo $row['id']; ?>" <?php echo $row['id'] == $this->session->get('category_id') ? 'selected' : ''; ?>><?php echo $row['name']; ?></option>
+<?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="control">
+                    <button class="button is-primary">検索</button>
+            </div>
+        </div>
+    </form>
+
 
 
 <?php if (empty($lists)): ?>
-    <div class="notification is-warning">
-        登録されていません。
+    <div class="notification is-warning spacing">
+        検索できませんでした
     </div>
 <?php else: ?>
 

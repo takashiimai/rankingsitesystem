@@ -705,3 +705,276 @@
 
 )
 
+18/02/17 08:42:04 (PID.3700)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 08:55:57 (PID.3700)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => bitFlyer_logo_ogp.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpBrxAJY
+            [error] => 0
+            [size] => 158073
+        )
+
+)
+
+18/02/17 08:55:57 (PID.3700)file_model.php[L.37] /userdata/images/
+18/02/17 08:55:57 (PID.3700)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/ca/
+18/02/17 08:55:57 (PID.3700)file_model.php[L.54] 結果:1
+18/02/17 09:17:07 (PID.3692)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => main-item10.gif
+            [type] => image/gif
+            [tmp_name] => /tmp/phpBM9SVL
+            [error] => 0
+            [size] => 12514
+        )
+
+)
+
+18/02/17 09:17:07 (PID.3692)file_model.php[L.37] /userdata/images/
+18/02/17 09:17:07 (PID.3692)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/c8/
+18/02/17 09:17:07 (PID.3692)file_model.php[L.54] 結果:1
+18/02/17 09:17:34 (PID.3691)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 09:24:09 (PID.3688)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => ogp-zcomcoin.png
+            [type] => image/png
+            [tmp_name] => /tmp/php7Q1S5A
+            [error] => 0
+            [size] => 31047
+        )
+
+)
+
+18/02/17 09:24:09 (PID.3688)file_model.php[L.37] /userdata/images/
+18/02/17 09:24:09 (PID.3688)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/20/
+18/02/17 09:24:09 (PID.3688)file_model.php[L.54] 結果:1
+18/02/17 09:24:44 (PID.3699)admin_site_controller.php[L.64] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 09:34:53 (PID.3700)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 10:03:32 (PID.3692)admin_site_controller.php[L.64] Array
+(
+    [id] => 1
+    [name] => bitFlyer(ビットフライヤー)
+    [category_id] => 1
+    [url] => https://bitflyer.jp/
+    [main_image] => /userdata/images/ca/ca7d34e3737fb402a6efc3b46fe43e4d.png
+    [site_item] => 
+)
+
+18/02/17 10:03:50 (PID.3702)admin_site_controller.php[L.63] Array
+(
+    [id] => 1
+    [name] => bitFlyer(ビットフライヤー)
+    [category_id] => 1
+    [url] => https://bitflyer.jp/
+    [main_image] => /userdata/images/ca/ca7d34e3737fb402a6efc3b46fe43e4d.png
+    [site_item] => Array
+        (
+            [currency] => aaaa
+            [leverage] => ssssssssssssss
+            [commission] => 
+            [margin] => 
+            [service_date] => 
+            [company] => 
+            [address] => 
+            [capital_stock] => 
+            [etcetra] => 
+            [explain] => 
+        )
+
+)
+
+18/02/17 10:03:50 (PID.3702)admin_site_controller.php[L.65] Array
+(
+    [id] => 1
+    [name] => bitFlyer(ビットフライヤー)
+    [category_id] => 1
+    [url] => https://bitflyer.jp/
+    [main_image] => /userdata/images/ca/ca7d34e3737fb402a6efc3b46fe43e4d.png
+    [site_item] => 
+)
+
+18/02/17 10:04:30 (PID.3691)admin_site_controller.php[L.63] Array
+(
+    [id] => 1
+    [name] => bitFlyer(ビットフライヤー)
+    [category_id] => 1
+    [url] => https://bitflyer.jp/
+    [main_image] => /userdata/images/ca/ca7d34e3737fb402a6efc3b46fe43e4d.png
+    [site_item] => Array
+        (
+            [currency] => aaaa
+            [leverage] => ssssssssssssss
+            [commission] => 
+            [margin] => 
+            [service_date] => 
+            [company] => 
+            [address] => 
+            [capital_stock] => 
+            [etcetra] => 
+            [explain] => 
+        )
+
+)
+
+18/02/17 10:04:30 (PID.3691)admin_site_controller.php[L.65] Array
+(
+    [id] => 1
+    [name] => bitFlyer(ビットフライヤー)
+    [category_id] => 1
+    [url] => https://bitflyer.jp/
+    [main_image] => /userdata/images/ca/ca7d34e3737fb402a6efc3b46fe43e4d.png
+    [site_item] => Array
+        (
+            [currency] => aaaa
+            [leverage] => ssssssssssssss
+            [commission] => 
+            [margin] => 
+            [service_date] => 
+            [company] => 
+            [address] => 
+            [capital_stock] => 
+            [etcetra] => 
+            [explain] => 
+        )
+
+)
+
+18/02/17 10:04:56 (PID.3690)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 10:06:28 (PID.3687)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 10:18:22 (PID.3692)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => ogp_rora_fb.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpqANEvL
+            [error] => 0
+            [size] => 742845
+        )
+
+)
+
+18/02/17 10:18:22 (PID.3692)file_model.php[L.37] /userdata/images/
+18/02/17 10:18:22 (PID.3692)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/13/
+18/02/17 10:18:22 (PID.3692)file_model.php[L.54] 結果:1
+18/02/17 10:27:35 (PID.3691)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+18/02/17 10:56:07 (PID.3700)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => share-5461ea0042.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpelPl2U
+            [error] => 0
+            [size] => 37797
+        )
+
+)
+
+18/02/17 10:56:07 (PID.3700)file_model.php[L.37] /userdata/images/
+18/02/17 10:56:07 (PID.3700)file_model.php[L.51] /var/www/rankingsitesystem/userdata/images/4a/
+18/02/17 10:56:07 (PID.3700)file_model.php[L.54] 結果:1
+18/02/17 10:57:52 (PID.3701)admin_site_controller.php[L.66] Array
+(
+    [upload_file] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
