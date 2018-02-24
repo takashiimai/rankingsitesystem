@@ -27,7 +27,7 @@ class site_model extends db_model {
         $query .= 'WHERE 1  ';
         if ($slug) {
             $params[':slug'] = $slug;
-            $query .= 'WHERE c.slug = :slug ';
+            $query .= 'AND c.slug = :slug ';
         }
         $category_id = $this->request->post('category_id');
         $this->session->set('category_id', $category_id);
